@@ -1,0 +1,163 @@
+:root{
+    --bg-main:#23242a;
+    --bg-form:#1c1c1c;
+    --bg-animate:#45f3ff;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color:var(--bg-main) ;
+    font-family: 'Caveat', cursive;
+    
+}
+.form-login {
+    position: relative;
+   width: 380px;
+   height: 420px;
+   background:var(--bg-form) ;
+   border-radius: 8px;
+   overflow: hidden;
+   
+}
+
+.form-login::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+   height: 420px;
+   background: linear-gradient(0deg,transparent,
+   #45f3ff,#45f3ff);
+   animation: rotate 6s linear infinite;
+   transform-origin: bottom right;
+}
+.form-login::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 380px;
+   height: 420px;
+   background: linear-gradient(0deg,transparent,
+   var(--bg-animate),var(--bg-animate));
+   animation: rotate 6s linear  infinite alternate;
+   animation-delay: -3s;
+   transform-origin: top right;
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.form {
+    position: absolute;
+    z-index: 9;
+    background: #28292d;
+    inset: 1px;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+}
+.form h2 {
+    color: var(--bg-animate);
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: .1rem;
+}
+
+.formInputs{
+    position: relative;
+    width: 300px;
+    margin-top: 2rem;
+}
+
+.formInputs input{
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    padding: 1.4rem .7rem .6rem;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--bg-main);
+    font-size: 1rem;
+    letter-spacing: .05rem;
+}
+
+.formInputs span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding:1.4rem 0rem .6rem ;
+    font-size: 1rem;
+    color: #8f8f8f;
+    pointer-events: none;
+    letter-spacing: .05rem;
+    transition: .5s;
+}
+
+.formInputs input:valid ~ span,
+.formInputs input:focus ~ span{
+    color: var(--bg-animate);
+    transform: translateX(0px) translateY(-34px);
+    font-size: .75rem;
+}
+
+.formInputs i {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
+    width: 100%;
+    height: .1rem;
+    background: var(--bg-animate);
+    border-radius: 4px;
+    transition: .5s;
+    pointer-events: none;
+}
+
+.formInputs input:valid ~ i,
+.formInputs input:focus ~ i {
+height: 3rem;
+}
+
+.loginLinks {
+    display: flex;
+    justify-content: space-between;
+}
+
+.loginLinks a{
+    margin: .8rem 0;
+    font-size: .75rem;
+    color: #8f8f8f;
+    text-decoration: none;
+}
+.loginLinks a:hover,
+.loginLinks a:nth-child(2){
+    color: var(--bg-animate);
+}
+
+input[type="submit"]
+{
+    border: none;
+    outline: none;
+    background: var(--bg-animate);
+    padding: .8rem 2rem;
+    margin-top: .8rem;
+    border-radius: .2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .5s all;
+}
+input[type="submit"]:hover{
+    background: var(--bg-form);
+    color: var(--bg-animate);
+}
