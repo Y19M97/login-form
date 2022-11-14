@@ -1,12 +1,13 @@
 :root{
     --bg-main:#23242a;
     --bg-form:#1c1c1c;
-    --bg-animate:#45f3ff;
+    --bg-animate:#f95959;
 }
 body{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     min-height: 100vh;
     background-color:var(--bg-main) ;
     font-family: 'Caveat', cursive;
@@ -30,7 +31,7 @@ body{
     width: 380px;
    height: 420px;
    background: linear-gradient(0deg,transparent,
-   #45f3ff,#45f3ff);
+   var(--bg-animate),var(--bg-animate)#45f3ff);
    animation: rotate 6s linear infinite;
    transform-origin: bottom right;
 }
@@ -160,4 +161,13 @@ input[type="submit"]
 input[type="submit"]:hover{
     background: var(--bg-form);
     color: var(--bg-animate);
+}
+
+.copyright {
+    color: var(--bg-animate);
+}
+.icons i {
+    color: var(--bg-animate);
+    font-size: 2rem;
+    animation: rotate 1s infinite alternate;
 }
